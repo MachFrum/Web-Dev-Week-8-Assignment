@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mach's Scent | Luxury Perfumes</title>
+    <link rel="stylesheet" href="Css\styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> <!-- I Establish an early connection to the Google Fonts domain and Improve loading performance by setting up the connection before it's needed -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <!-- Creates another early connection to fonts.gstatic.com (where the actual font files are stored) -->
+    <!--  I Request specific font families: Cormorant Garamond and Montserrat and Specify font weights: 300, 400, 500, 600 for Cormorant Garamond and 300, 400, 500 for Montserrat  -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">Mach's Scent</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="products.html">Perfumes</a></li>
+                    <li><a href="cart.html" class="cart-link">Cart <span id="cart-count">0</span></a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Discover Your Signature Scent</h1>
+            <p>Luxury fragrances crafted with the finest ingredients</p>
+            <a href="products.html" class="btn btn-primary">Explore Collection</a>
+        </div>
+    </section>
+
+    <section class="featured container">
+        <h2>Featured Fragrances</h2>
+        <div class="featured-grid" id="featured-products">
+            <!-- Featured products will be loaded here by JavaScript -->
+        </div>
+    </section>
+
+    <section class="about container">
+        <div class="about-content">
+            <h2>The Art of Scent</h2>
+            <p>At Mach's Scent, we believe fragrance is the most intimate form of luxury. Each bottle contains not just perfume, but a story, a mood, a memory waiting to be made.</p>
+            <p>Our master perfumers blend traditional techniques with modern innovation to create scents that are both timeless and contemporary.</p>
+        </div>
+        <div class="about-image">
+            <img src="images/about.jpeg" alt="Perfume creation process">
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>Mach's Scent</h3>
+                    <p>Luxury redefined</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Perfumes</a></li>
+                        <li><a href="cart.html">Cart</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>Stay Updated</h4>
+                    <p>Subscribe to receive news about exclusive fragrances</p>
+                    <form>
+                        <input type="email" placeholder="Your email address">
+                        <button type="submit" class="btn">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Mach's Scent. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/products.js"></script>
+    <script>
+        // I'm loading the featured products on the homepage
+        document.addEventListener('DOMContentLoaded', function() {
+            // I'm selecting only 3 products to feature on the homepage
+            const featuredProducts = products.slice(0, 3);
+            const featuredContainer = document.getElementById('featured-products');
+            
+            featuredProducts.forEach(product => {
+                const productEl = document.createElement('div');
+                productEl.className = 'product-card';
+                productEl.innerHTML = `
+                    <div class="product-image">
+                        <img src="${product.image}" alt="${product.name}">
+                    </div>
+                    <h3>${product.name}</h3>
+                    <p class="price">$${product.price.toFixed(2)}</p>
+                    <a href="products.html" class="btn btn-secondary">View Details</a>
+                `;
+                featuredContainer.appendChild(productEl);
+            });
+
+            // I'm updating the cart count in the header
+            const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+            document.getElementById('cart-count').textContent = cartItems.length;
+            
+            // I'm adding mobile menu toggle functionality
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const nav = document.querySelector('nav');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                nav.classList.toggle('active');
+                this.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
