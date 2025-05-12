@@ -20,7 +20,7 @@ A polished, responsive e-commerce frontend for a luxury perfume brand. This proj
 
 ## 🚀 Live Demo
 
-View the live demo: [Mach's Scent on GitHub Pages](https://your-username.github.io/machs-scent)
+View the live demo: [Mach's Scent on GitHub Pages](https://machfrum.github.io/Web-Dev-Week-8-Assignment/)
 
 ## 🗂️ Project Structure
 
@@ -68,15 +68,10 @@ mach-scent/
 
 1. Clone this repository:
    ```
-   git clone https://github.com/your-username/machs-scent.git
+   git clone https://github.com/MachFrum/Web-Dev-Week-8-Assignment.git
    ```
 
-2. Navigate to the project directory:
-   ```
-   cd machs-scent
-   ```
-
-3. Open any of the HTML files in your browser:
+2. Open any of the HTML files in your browser:
    ```
    open index.html
    ```
