@@ -96,7 +96,6 @@ The site is fully responsive with breakpoints at:
 
 - All JavaScript is included inline in the HTML files for simplicity and clarity, rather than as separate .js files (except for the product data)
 - The design follows modern e-commerce patterns with a focus on elegance and simplicity
-- First-person comments are included throughout the code for easy understanding
 
 ## 🖼️ Adding Your Own Images
 
